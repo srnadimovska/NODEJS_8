@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD NEW BOOK</title>
+    <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+    
+    <h1>ADD NEW BOOK PAGE</h1>
+    <h2>Table of books:</h2>
+    <table>
+        <tr>
+            <th>TITLE OF BOOK</th>
+            <th>AUTHOR</th>
+            <th>YEAR</th>
+            <th>PRICE</th>
+        </tr>
+        <% books.forEach( book => { %>
+            <tr>
+            <td><%= book.name %></td>
+            <td><%= book.author %></td>
+            <td><%= book.year %></td>
+            <td><%= book.price %></td>
+            <td><button id="delete-button">DELETE</button></td>
+        </tr>
+        <% }); %>
+    </table>
+    <h2>ADD NEW BOOK:</h2>
+    <hr>
+    <div id="form">
+    <div id = "divform">
+    <form action="/newbooks" method="post">
+        <p>Title</p>
+        <input type="text" name="name" id="name" placeholder="Enter title"required />
+        <p>Author</p>
+        <input type="text" name="author" id="author" placeholder="Enter author" required />
+        <p>Year</p>
+        <input type="number" name="year" id="year" placeholder="Enter year" required />
+        <p>Price</p>
+        <input type="number" name="price" id="price" placeholder="Enter price" required step="0.01" />
+        <input type="submit" value="ADD NEW BOOK">
+
+    </form>
+</div>
+</div>
+
+
+
+    <div class="footer">
+    <%- include('partials/footer') %>
+    </div>
+
+</body>
+</html>
